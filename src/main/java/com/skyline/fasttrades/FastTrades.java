@@ -3,8 +3,8 @@ package com.skyline.fasttrades;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.world.inventory.MenuType;
+import net.minecraft.client.gui.ScreenManager;
+import net.minecraft.inventory.container.ContainerType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -29,7 +29,7 @@ public class FastTrades {
 
 	private void doClientStuff(final FMLClientSetupEvent event) {
 		try {
-			MenuScreens.register(MenuType.MERCHANT, ModMerchantScreen::new);
+			ScreenManager.register(ContainerType.MERCHANT, ModMerchantScreen::new);
 			log.info("Didn't register ModMerchantScreen?");
 		} catch (IllegalStateException ex) {
 			log.info("Registered ModMerchantScreen");
